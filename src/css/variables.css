@@ -1,0 +1,9 @@
+/* Pour ranger les variables des feuilles de style */
+:root {
+  /* Colors */
+  --primary-color: #a363c9;
+  --primary-color-dark: #3d0050;
+  --secondary-color: #4e3e42;
+  --bg-color: #ebdbdb;
+  --text-color: #4e3e42;
+}

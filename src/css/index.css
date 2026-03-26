@@ -1,0 +1,4 @@
+/* Imports des feuilles de styles */
+@import 'variables.css';
+@import 'structure.css';
+@import 'typography.css';
