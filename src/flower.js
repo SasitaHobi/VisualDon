@@ -14,10 +14,10 @@ function makeFlower() {
     stroke(baseColor.r, baseColor.g, baseColor.b, .5);
     strokeWeight(.25);
     let f = mainConfig.flowers.color;
-    let rOff = Math.random() * (f.colorOff - f.colorOff) + f.colorOff;
-    let gOff = Math.random() * (f.colorOff - f.colorOff) + f.colorOff;
-    let bOff = Math.random() * (f.colorOff - f.colorOff) + f.colorOff;
-    let brightOff = Math.random() * (f.brightOff.max - f.brightOff.min) + f.brightOff.min;
+    let rOff = 10;
+    let gOff = 10;
+    let bOff = 10;
+    let brightOff = 50;
     fill(f.r + rOff + brightOff, f.g + gOff + brightOff, f.b + bOff + brightOff);
 
     const petalCount = 5;

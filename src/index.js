@@ -3,7 +3,7 @@
 const axiom = 'F';
 let w = window.innerWidth;
 let h = window.innerHeight
-let len = Math.random() * ((h / 2.15) - h / 2.6) + h / 2.6;
+let len = (h / 2.15 + h / 2.6) / 2;
 let sentence = axiom;
 let count = 0;
 
@@ -29,7 +29,7 @@ function setup() {
 
 function turtle() {
    background(bgc);
-    angle = radians(Math.random() * (mainConfig.stems.angle.max - mainConfig.stems.angle.min) + mainConfig.stems.angle.min);
+    angle = radians((mainConfig.stems.angle.max + mainConfig.stems.angle.min) / 2);
     resetMatrix();
     translate(width / 2, height - 15);
     for (var i = 0; i < sentence.length; i++) {
@@ -41,14 +41,14 @@ function turtle() {
             translate(0, -len);
         } else if (current == '*') {
             if (i % mainConfig.flowers.density === 0) {
-                scale(Math.random() * (len / (Math.random() * (mainConfig.flowers.scale.max - mainConfig.flowers.scale.min) + mainConfig.flowers.scale.min)));
+                scale(0.8);
                 makeFlower();
             }
         } else if (current == '+') {
-            let positiveRotation = angle * Math.random() * mainConfig.stems.randomSeed;
+            let positiveRotation = angle * 0.5;
             rotate(positiveRotation);
         } else if (current == '-') {
-            let negativeRotation = -angle * Math.random() * mainConfig.stems.randomSeed;
+            let negativeRotation = -angle * 0.5;
             rotate(negativeRotation);
         } else if (current == '[') {
             push();
@@ -69,7 +69,7 @@ function generateStems(iterations) {
 }
 
 function branch() {
-    len *= Math.random() * (.52 - .45) + .45;
+    len *= 0.485;
     var nextSentence = '';
     for (var i = 0; i < sentence.length; i++) {
         var current = sentence.charAt(i);
@@ -90,11 +90,12 @@ function branch() {
 }
 
 function draw() {
-    noFill();
-    smooth();
-    background(3, 3, 3);
-    createSingleFlower();
-    noLoop();
+    // Disabled - flowers now displayed in footer
+    // noFill();
+    // smooth();
+    // background(3, 3, 3);
+    // createSingleFlower();
+    // noLoop();
 }
 
 function createSingleFlower(){

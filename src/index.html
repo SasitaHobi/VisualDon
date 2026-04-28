@@ -98,18 +98,44 @@
       margin: 0 auto;
       margin-top: 12px;
     }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 150px;
+      background: rgba(255, 245, 245);
+      border-top: 1px solid #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      overflow-x: auto;
+    }
+
+    .flower-canvas {
+      width: 80px;
+      height: 80px;
+      flex-shrink: 0;
+    }
   </style>
 </head>
 
-<body style="display: block; justify-content: center; margin: 0 auto;">
+<body style="display: block; justify-content: center; margin: 0 auto; padding-bottom: 200px;">
   <div class="container">
     <h2>VisualDon</h2>
     <!-- <button class="refresh" onClick="location.reload()">New Flower</button><br> -->
   </div>
 
+  <footer id="flower-footer">
+  </footer>
+
 </body>
 <script src="config.js"></script>
 <script src="flower.js"></script>
+<script src="footer-flowers.js"></script>
 <script language="javascript" type="text/javascript" src="index.js"></script>
 
 </html>

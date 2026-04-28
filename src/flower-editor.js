@@ -3,24 +3,24 @@
 
 function TestFlower() {
     this.petalColor = [255, 255, 255];
-    this.petalCount = Math.floor(Math.random() * (mainConfig.flowers.petalCount.max - mainConfig.flowers.petalCount.min) + mainConfig.flowers.petalCount.max);
+    this.petalCount = 3;
     this.pistilColor = [255, 255, 0];
-    this.pistilRadius = Math.random() * 30;
+    this.pistilRadius = 5;
     this.stroke = [20, 20, 20];
 
     // Petal control points 1 - 4
-    this.cp1x = Math.random() * (45 - (-45) + -45);
+    this.cp1x = 45
     this.cp1y = 0;
-    this.cp2x = Math.random() * (45 - (-20) + -20);
-    this.cp2y = Math.random() * (45 - (-45) + -45);
-    this.cp3x = Math.random() * (45 - (-20) + -20);
-    this.cp3y = Math.random() * (45 - (-45) + -45);
+    this.cp2x = 20;
+    this.cp2y = 45;
+    this.cp3x = 20;
+    this.cp3y = 45;
     this.cp4x = 0;
     this.cp4y = 0;
 }
 
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+    createCanvas(500, 200);
 
     // Instantiates the variable flower as a new Flower() object. 
     flower = new TestFlower();
@@ -32,7 +32,7 @@ function setup() {
 
 // Responsively resizes the canvas so that the flower is always in the middle.
 function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
+    resizeCanvas(200, 200);
 }
 
 function draw() {
@@ -43,7 +43,7 @@ function draw() {
     generateGrid();
 
     // Sets the origin to the center of the screen. 
-    translate(windowWidth / 2, windowHeight / 2);
+    translate(100, 100);
 
     scale(5);
     stroke(10, 10, 10);
@@ -77,13 +77,13 @@ function generateGrid() {
     let x = 50;
     let y = 50;
 
-    line(windowWidth / 2, 0, windowWidth / 2, windowHeight);
-    line(0, windowHeight / 2, windowWidth, windowHeight / 2);
+    line(100, 0, 100, 200);
+    line(0, 100, 200, 100);
 }
 
 function createGUI() {
     let gui = new dat.GUI();
-    gui.add(flower, 'pistilRadius', 0, 100).name("Pistil Radius").onChange(redraw);
+    gui.add(flower, 'pistilRadius', 0, 50).name("Pistil Radius").onChange(redraw);
     gui.add(flower, 'petalCount', 0, 10).name("Petal Count").onChange(redraw);
     gui.addColor(flower, 'petalColor').onChange(redraw);
     gui.addColor(flower, 'pistilColor').onChange(redraw);
@@ -99,4 +99,4 @@ function createGUI() {
 
     gui.add(flower, 'cp4x', -100, 100).name('ControlPoint4 - X').onChange(redraw);
     gui.add(flower, 'cp4y', -100, 100).name('ControlPoint4 - Y').onChange(redraw);
-}
+} 
