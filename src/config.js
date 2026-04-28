@@ -14,7 +14,7 @@ var mainConfig = {
                 max: 200,
                 min: -200
             },
-            colorOff: Math.random() * (100 - -60) + -60,
+            colorOff: 20,
             pistilColor: [baseColor.r + 200, baseColor.g + 200, baseColor.b + 55],
         },
         scale: {
@@ -37,7 +37,7 @@ var mainConfig = {
             max: 4,
             randomOffset: 1
         },
-        pistilRadius: Math.random() * 30,
+        pistilRadius: 15,
     },
     stems: {
         angle : {
