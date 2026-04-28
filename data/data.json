@@ -634,5 +634,29 @@
     "Aides financières 1": "Non",
     "Aide financières  2": "",
     "Commentaire": "Argent prioritaire"
+  },
+  {
+    "ID": 54,
+    "Préférence type formation": "Temps partiel",
+    "Raison 1": "Avoir un bagage",
+    "Raison 2": "",
+    "Raison 3": "",
+    "Emploi": "Argent de poche",
+    "Situation": "Famille",
+    "Aides financières 1": "Parents",
+    "Aide financières  2": "",
+    "Commentaire": ""
+  },
+  {
+    "ID": 55,
+    "Préférence type formation": "Temps partiel",
+    "Raison 1": "",
+    "Raison 2": "",
+    "Raison 3": "",
+    "Emploi": "Non",
+    "Situation": "Famille",
+    "Aides financières 1": "Parents",
+    "Aide financières  2": "",
+    "Commentaire": ""
   }
 ]
