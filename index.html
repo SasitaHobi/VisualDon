@@ -1,51 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Pour la survie des étudiants</title>
-	<link rel="stylesheet" href="css/index.css" /> -->
-	<!-- <script type="module" src="index.js" defer></script> -->
-<!-- </head>
-
-<body>
-	<header>
-		<a id="logo" href="">
-			<p>Maison</p>
-		</a>
-		<p>Ceci est le header</p>
-
-	</header>
-	<main>
-		
-		<section id="intro">
-			<h1>P</h1>
-			<h2>Ceci est le titre</h2>
-			<p>Ceci est le corps</p>
-		</section>
-		<section id="fleur">
-			<h2>Ceci est le titre</h2>
-			<p>Ceci est le corps</p>
-		</section>
-		<section id="tri">
-			<h2>Ceci est le titre</h2>
-			<p>Ceci est le corps</p>
-		</section>
-		<section id="conclusion">
-			<h2>Ceci est le titre</h2>
-			<p>Ceci est le corps</p>
-		</section>
-
-	</main>
-	<footer>
-		<canvas></canvas>
-		<p>ceci est le footer</p>
-	</footer>
-
-</body>
-
-</html> -->
 <html>
 
 <head>
@@ -61,6 +13,7 @@
       animation: fadeInAnimation ease .5s;
       animation-iteration-count: 1;
       animation-fill-mode: forwards;
+      padding: 15px;
     }
 
     @keyframes fadeInAnimation {
@@ -73,30 +26,11 @@
       }
     }
 
-    button.refresh {
-      display: block;
-      color: red;
-      font-family: 'Inconsolata', monospace;
-      font-size: 16px;
-      font-weight: 800;
-      background: none;
-      border: 1px solid red;
-      padding: 8px;
-      padding-left: 12px;
-      padding-right: 12px;
-    }
-
-    .container {
-      position: absolute;
-      top: 10%;
-      left: 10%;
-    }
-
     canvas {
       width: 500px;
       display: flex;
       margin: 0 auto;
-      margin-top: 12px;
+      margin-top: 0px;
     }
 
     footer {
@@ -104,20 +38,20 @@
       bottom: 0;
       left: 0;
       right: 0;
-      height: 150px;
+      height: 200px;
       background: rgba(255, 245, 245);
-      border-top: 1px solid #ccc;
+
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 10px;
-      padding: 10px;
+      padding: 0px;
       overflow-x: auto;
     }
 
     .flower-canvas {
       width: 80px;
-      height: 80px;
+      height: 150px;
       flex-shrink: 0;
     }
   </style>
@@ -125,17 +59,41 @@
 
 <body style="display: block; justify-content: center; margin: 0 auto; padding-bottom: 200px;">
   <div class="container">
-    <h2>VisualDon</h2>
-    <!-- <button class="refresh" onClick="location.reload()">New Flower</button><br> -->
+    
   </div>
+<section id="intro"></section>
+    <h1>En Ingénierie des Médias, il n'y a que du temps plein...</h1>
 
+    <h2>Pourquoi?</h2>
+
+    <p>En 2026, il n'est possible de s'incrire qu'en temps plein en dans la filière d'Ingénierie des Médias de la
+      HEIG-VD. Pourtant, de nombreuses autres filières proposent des alternatives comme le temps partiel ou le Bachelor
+      en emploi. Nous avons interrogé des dizaines d'étudiants sur le sujet. Voici un état des lieux de la situation...
+    </p>
+
+    </section>
+
+    <section id="center-flower">
+      <h2>Voici une stat</h2>
+      <p>Plusieurs facteurs font perdre de l'energie aux étudiants, que reste-t-il pour les études?</p>
+      <p>{{percent}}% d'étudiants </p>
+      <p>Plusieurs facteurs font perdre de l'energie aux étudiants, que reste-t-il pour les études?</p>
+    </section>
+    <section id="sorted-flower">
+      <h2>Tant d'élèves travaillent pour vivre</h2>
+      <p>Tant ont déclarer ne pas en avoir besoin, et comme par hasard ils vivent chez leurs parents...</p>
+    </section>
+    <section id="conclusion">
+      <h2>Que tirer de tout ça?</h2>
+      <p>Beaucoup d'impact émotionnel, regardez ces petites pousses chouppettes! Aidez-les à grandir, votez OUI aux alternatives au temps plain en Ingénierie des médias!</p>
+    </section>
   <footer id="flower-footer">
   </footer>
 
 </body>
 <script src="src/config.js"></script>
 <script src="src/flower.js"></script>
-<!-- <script src="src/footer-flowers.js"></script> -->
+<script src="src/footer-flowers.js"></script>
 <script language="javascript" type="text/javascript" src="src/index.js"></script>
 
 </html>

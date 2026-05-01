@@ -46,7 +46,7 @@ function createFooterFlower(index) {
 
     let flowerSketch = (p) => {
         p.setup = function() {
-            p.createCanvas(80, 80);
+            p.createCanvas(80, 120);
         }
 
         p.draw = function() {
@@ -56,7 +56,7 @@ function createFooterFlower(index) {
             // Draw stem from bottom (fixed) to top (growing)
             p.stroke(130, 130, 80);
             p.strokeWeight(2);
-            p.line(0, 40, 0, 10 - flowerHeights[index]);
+            p.line(0, 100, 0, 10 - flowerHeights[index]);
 
             // Move to top of stem to draw flower
             p.translate(0, -flowerHeights[index]);
