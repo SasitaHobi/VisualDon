@@ -634,5 +634,32 @@
     "help1": "Non",
     "help2": "",
     "comment": "Argent prioritaire"
+  },
+  },
+   {
+    "id": 54,
+    "pref": "Temps partiel",
+    "reason1": "Avoir un bagage",
+    "reason2": "",
+    "reason3": "",
+    "working": "Argent de poche",
+    "situation": "Famille",
+    "help1": "Parents",
+    "help2": "",
+    "comment": ""
+  },
+  {
+    "id": 55,
+    "pref": "Temps partiel",
+    "reason1": "",
+    "reason2": "",
+    "reason3": "",
+    "working": "Non",
+    "situation": "Famille",
+    "help1": "Parents",
+    "help2": "",
+    "comment": ""
   }
+  
+  
 ]
