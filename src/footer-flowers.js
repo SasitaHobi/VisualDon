@@ -36,8 +36,13 @@ function updateFlowerHeights() {
     // Update heights for different flowers based on scroll position
     for (let i = 0; i < 20; i++) {
         // Stagger the growth of flowers
-        const flowerProgress = Math.max(0, scrollProgress - (i * 0.05));
-        flowerHeights[i] = flowerProgress * 40; // Max height is 40
+        if(!(i===4||i===6||i===16)){
+        const flowerProgress = Math.max(0, scrollProgress);
+        flowerHeights[i] = (flowerProgress * 40)-40; // Max height is 40
+        }else{
+flowerHeights[i] = -40;
+        }
+        
     }
 }
 

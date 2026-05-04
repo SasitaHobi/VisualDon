@@ -1,1 +1,38 @@
-/* pour la mise en page */
+html {
+    display: flex;
+}
+body {
+    background-color: #ebdbdb;
+    width: 70%;
+}
+#intro {
+   
+    height: calc(100vh - 160px);
+    /* margin: 50px 0px; */
+    padding: 2rem;
+    align-content: space-around;
+    background-color: aqua;
+    justify-content: center;
+}
+#intro p {
+    width: 60%;
+   /* padding: 5rem; */
+   
+   
+}
+#center-flower{
+    position: sticky;
+    background-color: blue;
+}
+#sorted-flower{
+    position:sticky;
+    background-color: blueviolet;
+}
+#conclusion {
+    height: 100vh;
+    background-color: violet;
+    align-content: space-around;
+}
+#conclusion p {
+    width: 60%;
+}

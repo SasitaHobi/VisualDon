@@ -71,7 +71,7 @@ async function calculatePetalsToFall() {
   const partialPercent = (partial / total) * 100;
   const employmentPercent = (employment / total) * 100;
 
-  const dominant = Math.max(fullPercent, partialPercent, employmentPercent);
+  const dominant =  partialPercent+employmentPercent;
   petalsToFallCount = Math.round(16 * (dominant / 100));
 
   console.log(`Employment data: ${full} full-time, ${partial} part-time, ${employment} employed. ${petalsToFallCount} petals will fall.`);

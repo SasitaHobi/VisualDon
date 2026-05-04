@@ -80,21 +80,21 @@ function generateSortedFlowerSVG() {
     sortedFlowerData.topReasons.push(`Raison ${sortedFlowerData.topReasons.length + 1}`);
   }
 
-  const svgWidth = 1000;
+  const svgWidth = 2000;
   const svgHeight = 1200;
   const centerX = svgWidth / 2;
-  const centerY = 150;
-  const centerRadius = 100;
+  const centerY = 200;
+  const centerRadius = 500;
   const circleRadius = 15;
 
   // Column positions and bounds
-  const columnY = 350;
+  const columnY = 1000;
   const columnHeight = 700;
-  const columnWidth = 250;
+  const columnWidth = 500;
   const columns = [
-    { x: centerX - 350, reason: sortedFlowerData.topReasons[0] },
+    { x: centerX - centerX, reason: sortedFlowerData.topReasons[0] },
     { x: centerX, reason: sortedFlowerData.topReasons[1] },
-    { x: centerX + 350, reason: sortedFlowerData.topReasons[2] }
+    { x: centerX + centerX, reason: sortedFlowerData.topReasons[2] }
   ];
 
   let circles = `<circle id="center-circle-sorted" cx="${centerX}" cy="${centerY}" r="${centerRadius}" fill="#ffe8a8" opacity="0.9"/>`;
@@ -170,7 +170,7 @@ function updateSortedFlowerAnimation(progress) {
 
   // Phase 1: Shrink center circle (0 to 0.3 progress)
   const shrinkProgress = Math.max(0, Math.min(1, progress * 3.33));
-  const centerRadius = 100 * (1 - shrinkProgress * 0.7); // Shrink to 30% of original
+  const centerRadius = 400 * (1 - shrinkProgress * 0.9); // Shrink to 30% of original
   centerCircle.setAttribute('r', centerRadius);
 
   // Phase 2: Disperse small circles (0.3 to 1 progress)
