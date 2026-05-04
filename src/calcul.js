@@ -1,4 +1,5 @@
 import survey from "../data/data.json"
+
 const answers = JSON.parse(survey);
 
 const totAnswers = answers.length;
