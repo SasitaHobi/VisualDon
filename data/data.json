@@ -635,7 +635,7 @@
     "help2": "",
     "comment": "Argent prioritaire"
   },
-  },
+  
    {
     "id": 54,
     "pref": "Temps partiel",
@@ -660,6 +660,5 @@
     "help2": "",
     "comment": ""
   }
-  
   
 ]

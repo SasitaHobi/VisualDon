@@ -1,5 +1,6 @@
 
 // import studentsData from "../data/Profils en Ingénierie des médias.csv";
+import { makeCenterFlower } from './center-flower.js';
 const axiom = 'F';
 let w = window.innerWidth;
 let h = window.innerHeight
@@ -102,3 +103,4 @@ function createSingleFlower(){
     turtle();
     generateStems(mainConfig.stems.count);
 }
+makeCenterFlower();

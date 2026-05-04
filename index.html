@@ -5,7 +5,7 @@
   <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js">
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300&display=swap" rel="stylesheet">
-
+  <link href="./src/css/index.css" rel="stylesheet">
   <script src="./addons/dat.gui.js"></script>
   <style>
     body {
@@ -54,12 +54,44 @@
       height: 150px;
       flex-shrink: 0;
     }
+
+    .petal.falling {
+      animation: petalFall 2.5s ease-in forwards;
+    }
+
+    @keyframes petalFall {
+      0% {
+        opacity: 1;
+        transform: rotate(0deg) translateY(0);
+      }
+      70% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: rotate(720deg) translateY(400px);
+      }
+    }
+
+    #sorted-flower-container {
+      width: 100%;
+      max-width: 1000px;
+      margin: 60px auto;
+    }
+
+    #sorted-flower-svg {
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    .sorted-student-circle {
+      transition: all 0.05s ease-out;
+    }
   </style>
 </head>
 
 <body style="display: block; justify-content: center; margin: 0 auto; padding-bottom: 200px;">
   <div class="container">
-    
+
   </div>
 <section id="intro"></section>
     <h1>En Ingénierie des Médias, il n'y a que du temps plein...</h1>
@@ -93,6 +125,9 @@
 </body>
 <script src="src/config.js"></script>
 <script src="src/flower.js"></script>
+<script src="src/calcul.js" type="module"></script>
+<script src="src/center-flower.js"></script>
+<script src="src/sorted-flower.js"></script>
 <script src="src/footer-flowers.js"></script>
 <script language="javascript" type="text/javascript" src="src/index.js"></script>
 
