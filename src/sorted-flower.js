@@ -80,24 +80,27 @@ function generateSortedFlowerSVG() {
     sortedFlowerData.topReasons.push(`Raison ${sortedFlowerData.topReasons.length + 1}`);
   }
 
-  const svgWidth = 2000;
-  const svgHeight = 1200;
+  const svgWidth = 1000;
+  const svgHeight = 620;
   const centerX = svgWidth / 2;
-  const centerY = 200;
-  const centerRadius = 500;
+  const centerY = 220;
+  const centerRadius = 100;
   const circleRadius = 15;
 
   // Column positions and bounds
-  const columnY = 1000;
-  const columnHeight = 700;
-  const columnWidth = 500;
+  const columnY = 260;
+  const columnHeight = 260;
+  const columnWidth = 260;
+  const columnCenters = [150, 500, 850];
   const columns = [
-    { x: centerX - centerX, reason: sortedFlowerData.topReasons[0] },
-    { x: centerX, reason: sortedFlowerData.topReasons[1] },
-    { x: centerX + centerX, reason: sortedFlowerData.topReasons[2] }
+    { x: columnCenters[0], reason: sortedFlowerData.topReasons[0] },
+    { x: columnCenters[1], reason: sortedFlowerData.topReasons[1] },
+    { x: columnCenters[2], reason: sortedFlowerData.topReasons[2] }
   ];
 
   let circles = `<circle id="center-circle-sorted" cx="${centerX}" cy="${centerY}" r="${centerRadius}" fill="#ffe8a8" opacity="0.9"/>`;
+
+  const columnTitles = columns.map((column) => `\n  <text x="${column.x}" y="55" text-anchor="middle" fill="#362f2f" font-size="18" font-weight="600">${column.reason}</text>`).join('');
 
   // Group students by reason for better distribution
   const studentsPerReason = {};
@@ -133,7 +136,8 @@ function generateSortedFlowerSVG() {
   });
 
   const svg = `
-    <svg id="sorted-flower-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${svgWidth} ${svgHeight}" width="100%" height="600">
+    <svg id="sorted-flower-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${svgWidth} ${svgHeight}" width="100%" height="620">
+      ${columnTitles}
       ${circles}
     </svg>
   `;
@@ -141,30 +145,7 @@ function generateSortedFlowerSVG() {
   return svg;
 }
 
-function setupScrollAnimation() {
-  const sortedSection = document.getElementById('sorted-flower');
-  if (!sortedSection) return;
-
-  let animationStarted = false;
-
-  window.addEventListener('scroll', () => {
-    const sectionRect = sortedSection.getBoundingClientRect();
-    const sectionTop = sectionRect.top;
-    const sectionHeight = sectionRect.height;
-    const windowHeight = window.innerHeight;
-
-    // Calculate how far into the section we are (0 to 1)
-    const sectionProgress = Math.max(0, Math.min(1, (windowHeight - sectionTop) / (windowHeight + sectionHeight)));
-
-    // Only animate if section is visible
-    if (sectionProgress > 0) {
-      animationStarted = true;
-      updateSortedFlowerAnimation(sectionProgress);
-    }
-  });
-}
-
-function updateSortedFlowerAnimation(progress) {
+export function updateSortedFlowerAnimation(progress) {
   const centerCircle = document.querySelector('#center-circle-sorted');
   if (!centerCircle) return;
 
@@ -217,11 +198,20 @@ async function initSortedFlower() {
     // Create container
     const flowerContainer = document.createElement('div');
     flowerContainer.id = 'sorted-flower-container';
-    flowerContainer.style.cssText = 'display: flex; justify-content: center; margin: 40px 0;';
+    flowerContainer.className = 'sticky-step';
+    flowerContainer.style.cssText = 'display: flex; flex-direction: column; align-items: center; margin: 40px 0;';
 
     const svgContent = generateSortedFlowerSVG();
     console.log('SVG generated, length:', svgContent.length);
-    flowerContainer.innerHTML = svgContent;
+    const legendHtml = `
+      <div class="sorted-flower-legend">
+        <p class="legend-title">Légende : couleurs = situation de logement</p>
+        <div class="legend-items">
+          ${Object.entries(situationColors).map(([label, color]) => `<div class="legend-item"><span class="legend-swatch" style="background:${color}"></span><span>${label}</span></div>`).join('')}
+        </div>
+      </div>
+    `;
+    flowerContainer.innerHTML = svgContent + legendHtml;
 
     // Insert after heading
     const heading = sortedSection.querySelector('h2');
@@ -232,8 +222,6 @@ async function initSortedFlower() {
     }
     console.log('SVG inserted into DOM');
 
-    // Setup scroll animation
-    setupScrollAnimation();
     console.log('Sorted-flower initialized successfully');
   } catch (e) {
     console.error('Error initializing sorted-flower:', e);

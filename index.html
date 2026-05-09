@@ -2,11 +2,9 @@
 
 <head>
   <meta charset="UTF-8">
-  <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js">
-  </script>
+  <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300&display=swap" rel="stylesheet">
   <link href="./src/css/index.css" rel="stylesheet">
-  <script src="./addons/dat.gui.js"></script>
   <style>
     body {
       background: rgba(255, 245, 245);
@@ -81,10 +79,79 @@
 
     #sorted-flower-svg {
       filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      display: block;
+      margin: 0 auto;
+    }
+
+    .sorted-flower-legend {
+      width: 100%;
+      max-width: 900px;
+      margin-top: 20px;
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .sorted-flower-legend .legend-title {
+      margin: 0 0 10px;
+      font-size: 16px;
+      color: #3d2f2f;
+      font-weight: 600;
+    }
+
+    .sorted-flower-legend .legend-items {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .sorted-flower-legend .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #3d2f2f;
+    }
+
+    .sorted-flower-legend .legend-swatch {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: inline-block;
+      border: 1px solid rgba(0, 0, 0, 0.12);
     }
 
     .sorted-student-circle {
       transition: all 0.05s ease-out;
+    }
+
+    .step {
+      min-height: 240vh;
+      padding: 40px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .sticky-step {
+      position: sticky;
+      top: 80px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step h2,
+    .step p {
+      max-width: 900px;
+      margin: 0 auto 18px;
+      text-align: center;
     }
   </style>
 </head>
@@ -105,13 +172,13 @@
 
     </section>
 
-    <section id="center-flower">
+    <section id="center-flower" class="step">
       <h2>Voici une stat</h2>
       <p>Plusieurs facteurs font perdre de l'energie aux étudiants, que reste-t-il pour les études?</p>
       <p>{{percent}}% d'étudiants </p>
       <p>Plusieurs facteurs font perdre de l'energie aux étudiants, que reste-t-il pour les études?</p>
     </section>
-    <section id="sorted-flower">
+    <section id="sorted-flower" class="step">
       <h2>Tant d'élèves travaillent pour vivre</h2>
       <p>Tant ont déclarer ne pas en avoir besoin, et comme par hasard ils vivent chez leurs parents...</p>
     </section>
@@ -126,9 +193,8 @@
 <script src="src/config.js"></script>
 <script src="src/flower.js"></script>
 <script src="src/calcul.js" type="module"></script>
-<script src="src/center-flower.js"></script>
-<script src="src/sorted-flower.js"></script>
 <script src="src/footer-flowers.js"></script>
-<script language="javascript" type="text/javascript" src="src/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/scrollama@3.2.0/dist/scrollama.min.js"></script>
+<script type="module" src="src/index.js"></script>
 
 </html>
