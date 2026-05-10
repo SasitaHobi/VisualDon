@@ -199,7 +199,7 @@ async function initSortedFlower() {
     const flowerContainer = document.createElement('div');
     flowerContainer.id = 'sorted-flower-container';
     flowerContainer.className = 'sticky-step';
-    flowerContainer.style.cssText = 'display: flex; flex-direction: column; align-items: center; margin: 40px 0;';
+    flowerContainer.style.cssText = 'position: sticky; top: 80px; display: flex; flex-direction: column; align-items: center; margin: 40px 0;';
 
     const svgContent = generateSortedFlowerSVG();
     console.log('SVG generated, length:', svgContent.length);

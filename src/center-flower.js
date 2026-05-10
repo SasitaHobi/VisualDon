@@ -165,7 +165,7 @@ async function initCenterFlower() {
     const flowerContainer = document.createElement('div');
     flowerContainer.id = 'flower-container';
     flowerContainer.className = 'sticky-step';
-    flowerContainer.style.cssText = 'display: flex; justify-content: center; margin: 10px 0;';
+    flowerContainer.style.cssText = 'position: sticky; top: 80px; display: flex; justify-content: center; margin: 10px 0;';
     flowerContainer.innerHTML = generateFlowerSVG();
 
     const textContent = document.createElement('div');
