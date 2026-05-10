@@ -205,7 +205,7 @@ async function initSortedFlower() {
     console.log('SVG generated, length:', svgContent.length);
     const legendHtml = `
       <div class="sorted-flower-legend">
-        <p class="legend-title">Légende : couleurs = situation de logement</p>
+        <p class="legend-title">Chaque couleur désigne un type d'environnemnt différent</p>
         <div class="legend-items">
           ${Object.entries(situationColors).map(([label, color]) => `<div class="legend-item"><span class="legend-swatch" style="background:${color}"></span><span>${label}</span></div>`).join('')}
         </div>
@@ -213,13 +213,23 @@ async function initSortedFlower() {
     `;
     flowerContainer.innerHTML = svgContent + legendHtml;
 
-    // Insert after heading
+    // Extract text content
+    const textContent = document.createElement('div');
+    textContent.className = 'text-content';
+
     const heading = sortedSection.querySelector('h2');
-    if (heading && heading.nextSibling) {
-      sortedSection.insertBefore(flowerContainer, heading.nextSibling);
-    } else {
-      sortedSection.appendChild(flowerContainer);
+    const paragraphs = Array.from(sortedSection.querySelectorAll('p'));
+
+    if (heading) {
+      textContent.appendChild(heading);
     }
+
+    paragraphs.forEach(p => {
+      textContent.appendChild(p);
+    });
+
+    sortedSection.appendChild(textContent);
+    sortedSection.appendChild(flowerContainer);
     console.log('SVG inserted into DOM');
 
     console.log('Sorted-flower initialized successfully');

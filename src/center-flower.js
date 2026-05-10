@@ -165,15 +165,25 @@ async function initCenterFlower() {
     const flowerContainer = document.createElement('div');
     flowerContainer.id = 'flower-container';
     flowerContainer.className = 'sticky-step';
-    flowerContainer.style.cssText = 'display: flex; justify-content: center; margin: 40px 0;';
+    flowerContainer.style.cssText = 'display: flex; justify-content: center; margin: 10px 0;';
     flowerContainer.innerHTML = generateFlowerSVG();
 
+    const textContent = document.createElement('div');
+    textContent.className = 'text-content';
+
     const heading = centerSection.querySelector('h2');
-    if (heading && heading.nextSibling) {
-      centerSection.insertBefore(flowerContainer, heading.nextSibling);
-    } else {
-      centerSection.appendChild(flowerContainer);
+    const paragraphs = Array.from(centerSection.querySelectorAll('p'));
+
+    if (heading) {
+      textContent.appendChild(heading);
     }
+
+    paragraphs.forEach(p => {
+      textContent.appendChild(p);
+    });
+
+    centerSection.appendChild(flowerContainer);
+    centerSection.appendChild(textContent);
 
     await calculatePetalsToFall();
     console.log('Center flower initialized successfully');

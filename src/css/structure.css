@@ -3,7 +3,7 @@ html {
 }
 body {
     background-color: #ebdbdb;
-    width: 70%;
+    width: 90%;
 }
 #intro {
    
@@ -11,7 +11,7 @@ body {
     /* margin: 50px 0px; */
     padding: 2rem;
     align-content: space-around;
-    background-color: aqua;
+    /* background-color: aqua; */
     justify-content: center;
 }
 #intro p {
@@ -22,19 +22,34 @@ body {
    
 }
 #center-flower{
+    height: 100vh;
     position: relative;
-    background-color: blue;
+    /* background-color: blue; */
 }
+
 #sorted-flower{
+    height: 100vh;
     position: relative;
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
 }
 #conclusion {
     height: 100vh;
-    background-color: violet;
+    /* background-color: violet; */
     align-content: space-around;
 }
 #conclusion p {
     width: 60%;
     margin: auto;
+}
+#git {
+    width: 1rem;
+    height: 1rem;
+}
+header {
+    position: absolute;
+}
+a {
+    text-decoration: none;
+    color: #540f1c;
+    
 }

@@ -2,7 +2,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+  <script language="javascript" type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300&display=swap" rel="stylesheet">
   <link href="./src/css/index.css" rel="stylesheet">
   <style>
@@ -62,9 +63,11 @@
         opacity: 1;
         transform: rotate(0deg) translateY(0);
       }
+
       70% {
         opacity: 1;
       }
+
       100% {
         opacity: 0;
         transform: rotate(720deg) translateY(400px);
@@ -147,20 +150,77 @@
       justify-content: center;
     }
 
+    #center-flower {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 20px;
+      max-width: 1000px;
+    }
+
+    #center-flower .text-content {
+      order: 2;
+      text-align: left;
+      flex: 1;
+      min-width: 450px;
+      padding-top: 40px;
+    }
+
+    #center-flower .sticky-step {
+      order: 1;
+      position: relative;
+      top: 0;
+      flex-shrink: 0;
+    }
+
+    #sorted-flower {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 20px;
+      max-width: 1000px;
+    }
+
+    #sorted-flower .text-content {
+      order: 1;
+      text-align: left;
+      flex: 1;
+      min-width: 450px;
+      padding-top: 40px;
+    }
+
+    #sorted-flower .sticky-step {
+      order: 2;
+      position: relative;
+      top: 0;
+      flex-shrink: 0;
+    }
+
     .step h2,
     .step p {
       max-width: 900px;
       margin: 0 auto 18px;
       text-align: center;
     }
+
+    .text-content h2,
+    .text-content p {
+      max-width: 100%;
+      margin: 0 0 18px;
+      text-align: left;
+    }
   </style>
 </head>
 
 <body style="display: block; justify-content: center; margin: 0 auto; padding-bottom: 200px;">
+  <header>
+    <a href="https://github.com/SasitaHobi/VisualDon" target="_blank">
+      <img id='git' src="./assets/img/github_PNG40-1417037603.png" alt="logo github">
+    </a>
+    <a href="https://heig-vd.ch/formation/bachelor/ingenierie-des-medias" target="_blank">IM</a>
+  </header>
   <div class="container">
 
   </div>
-<section id="intro">
+  <section id="intro">
     <h1>En Ingénierie des Médias, il n'y a que du temps plein...</h1>
 
     <h2>Pourquoi?</h2>
@@ -170,22 +230,36 @@
       en emploi. Nous avons interrogé des dizaines d'étudiants sur le sujet. Voici un état des lieux de la situation...
     </p>
 
-    </section>
+  </section>
 
-    <section id="center-flower" class="step">
-      <h2>Voici une stat</h2>
-      <p>Plusieurs facteurs font perdre de l'energie aux étudiants, que reste-t-il pour les études?</p>
-      <p>{{percent}}% d'étudiants </p>
-      <p>Plusieurs facteurs font perdre de l'energie aux étudiants, que reste-t-il pour les études?</p>
-    </section>
-    <section id="sorted-flower" class="step">
-      <h2>Tant d'élèves travaillent pour vivre</h2>
-      <p>Tant ont déclarer ne pas en avoir besoin, et comme par hasard ils vivent chez leurs parents...</p>
-    </section>
-    <section id="conclusion">
-      <h2>Que tirer de tout ça?</h2>
-      <p>Beaucoup d'impact émotionnel, regardez ces petites pousses chouppettes! Aidez-les à grandir, votez OUI aux alternatives au temps plain en Ingénierie des médias!</p>
-    </section>
+  <section id="center-flower" class="step">
+    <h2>Qui veut d'un temps plein?</h2>
+    <p>Presque personne! <br>
+      Parmis tous.tes les étudiant.e.s interrogé.e.s, %vpartialEmploymentCount% préfèreraient étudier à temps partiel ou en
+      emploi, soit la grande majorité. <br>
+      De plus, parmis iels %VitalCount% déclarent travailler pour subvenir à des besoins vitaux. <br>
+      Dans de telles conditions, qulle énergie reste-t-il pour les études?
+    </p>
+  </section>
+  <section id="sorted-flower" class="step">
+    <h2>Quels risques?</h2>
+    <p>Voyons d'abord s'il y a une corrélation entre les raisons citées pour préférer le temps partiel etla situation des étudiant.e.s... <br>
+    Voilà les 3 raison données le plus souvent:
+    </p>
+    <p>
+      Remarquez comme de nombreux répondant.e.s vivent seul.e.s et ont également besoin d'argent? <br>
+      Ne pas offrir d'alternatives signifie que ces gens sont obligé.e.s d'étudier à temps plein en plus d'un travail nécessaire au maintien de leur indépendance.
+    </p>
+  </section>
+  <section id="conclusion">
+    <h2>Nous avons besoin du temps partiel</h2>
+    <p>Combien d'étudiant.e.s ont du abandonner par manque de temps ou d'argent? Combien ont échoués parce qu'iels
+      n'arrivaient pas à tenir le rythme des cours en travaillant à côté?
+
+    <p>Vous avez vu ces pousses grandir, mais pensez à toutes celles qui n'en ont pas eu l'opportunité. Pour donner les
+      meilleures chances à tous.tes de s'épanouir en Ingénierie des Médias, il faut des alternatives au temps plein!</p>
+    </p>
+  </section>
   <footer id="flower-footer">
   </footer>
 

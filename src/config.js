@@ -1,7 +1,7 @@
 var baseColor = {
-    r: 150,
-    g:  50,
-    b:  200
+    r: 75,
+    g:  25,
+    b:  100
 }
 
 var mainConfig = {
