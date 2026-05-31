@@ -97,21 +97,33 @@
       text-align: center;
     }
 
-    .sorted-flower-legend .legend-title {
+    .center-flower-legend {
+      margin-top: 20px;
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .sorted-flower-legend .legend-title,
+    .center-flower-legend .legend-title {
       margin: 0 0 10px;
       font-size: 16px;
       color: #3d2f2f;
       font-weight: 600;
     }
 
-    .sorted-flower-legend .legend-items {
+    .sorted-flower-legend .legend-items,
+    .center-flower-legend .legend-items {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 14px;
     }
 
-    .sorted-flower-legend .legend-item {
+    .sorted-flower-legend .legend-item,
+    .center-flower-legend .legend-item {
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -119,7 +131,8 @@
       color: #3d2f2f;
     }
 
-    .sorted-flower-legend .legend-swatch {
+    .sorted-flower-legend .legend-swatch,
+    .center-flower-legend .legend-swatch {
       width: 18px;
       height: 18px;
       border-radius: 50%;
@@ -163,6 +176,9 @@
       flex: 1;
       min-width: 450px;
       padding-top: 40px;
+      position: sticky;
+      top: 80px;
+      height: fit-content;
     }
 
     #center-flower .sticky-step {
@@ -185,6 +201,9 @@
       flex: 1;
       min-width: 450px;
       padding-top: 40px;
+      position: sticky;
+      top: 80px;
+      height: fit-content;
     }
 
     #sorted-flower .sticky-step {
@@ -235,19 +254,20 @@
   <section id="center-flower" class="step">
     <h2>Qui veut d'un temps plein?</h2>
     <p>Presque personne! <br>
-      Parmis tous.tes les étudiant.e.s interrogé.e.s, %vpartialEmploymentCount% préfèreraient étudier à temps partiel ou en
+      Parmis tous.tes les étudiant.e.s interrogé.e.s, %1 préfèreraient étudier à temps partiel ou en
       emploi, soit la grande majorité. <br>
-      De plus, parmis iels %VitalCount% déclarent travailler pour subvenir à des besoins vitaux. <br>
-      Dans de telles conditions, qulle énergie reste-t-il pour les études?
+      De plus, parmis iels %2 déclarent travailler à côté pour subvenir à des besoins vitaux. <br>
+      Dans de telles conditions, quelle énergie reste-t-il pour les études?
     </p>
   </section>
   <section id="sorted-flower" class="step">
     <h2>Quels risques?</h2>
-    <p>Voyons d'abord s'il y a une corrélation entre les raisons citées pour préférer le temps partiel etla situation des étudiant.e.s... <br>
+    <p>Voyons d'abord s'il y a une corrélation entre les raisons citées pour préférer le temps partiel et la situation des étudiant.e.s... <br>
     Voilà les 3 raison données le plus souvent:
     </p>
     <p>
-      Remarquez comme de nombreux répondant.e.s vivent seul.e.s et ont également besoin d'argent? <br>
+      En moyenne en Suisse, 40% des étudiant.e.s en Haute Ecole vivent chez leurs parents. Pourtant, on voit ici clairement que la majorité des étudiants IM ne vivent pas seul.e.s. Cela signifie que cette catégorie de la population ne peut pas se permettre d'étudier l'IM et se tournent vers d'autres filières. <br>
+
       Ne pas offrir d'alternatives signifie que ces gens sont obligé.e.s d'étudier à temps plein en plus d'un travail nécessaire au maintien de leur indépendance.
     </p>
   </section>

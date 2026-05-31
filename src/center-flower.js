@@ -8,6 +8,8 @@ const petalPath = "M62.65,209.6c0,83.16-3.63,129.98-31.31,209.6C4.64,338.37.8,29
 let petalsToFallCount = 0;
 let rot1TargetCount = 0;
 let rot3TargetCount = 0;
+let percent1 = 0;
+let percent2 = 0;
 
 async function loadCalculData() {
   try {
@@ -58,6 +60,8 @@ async function calculatePetalsToFall() {
     petalsToFallCount = 0;
     rot1TargetCount = 0;
     rot3TargetCount = 0;
+    percent1 = 0;
+    percent2 = 0;
     return;
   }
 
@@ -72,6 +76,8 @@ async function calculatePetalsToFall() {
     petalsToFallCount = 0;
     rot1TargetCount = 0;
     rot3TargetCount = 0;
+    percent1 = 0;
+    percent2 = 0;
     return;
   }
 
@@ -82,7 +88,10 @@ async function calculatePetalsToFall() {
   rot3TargetCount = Math.round(16 * (vitalCount / total));
   petalsToFallCount = rot3TargetCount;
 
-  console.log(`Employment data: ${full} full-time, ${partial} part-time, ${employment} employed, ${vital} vital. rot1=${rot1TargetCount}, rot3=${rot3TargetCount}.`);
+  percent1 = Math.round((partialEmploymentCount / total) * 100);
+  percent2 = Math.round((vitalCount / total) * 100);
+
+  console.log(`Employment data: ${full} full-time, ${partial} part-time, ${employment} employed, ${vital} vital. rot1=${rot1TargetCount}, rot3=${rot3TargetCount}. Percent1=${percent1}%, Percent2=${percent2}%.`);
 }
 
 let currentRot1Count = 0;
@@ -165,8 +174,20 @@ async function initCenterFlower() {
     const flowerContainer = document.createElement('div');
     flowerContainer.id = 'flower-container';
     flowerContainer.className = 'sticky-step';
-    flowerContainer.style.cssText = 'position: sticky; top: 80px; display: flex; justify-content: center; margin: 10px 0;';
+    flowerContainer.style.cssText = 'position: sticky; top: 80px; display: flex; flex-direction: column; justify-content: center; margin: 10px 0;';
     flowerContainer.innerHTML = generateFlowerSVG();
+
+    const legendHtml = `
+      <div class="center-flower-legend">
+        <p class="legend-title">Préférences et situation</p>
+        <div class="legend-items">
+          <div class="legend-item"><span class="legend-swatch" style="background:${basColor}"></span><span>Préfère le temps plein uniquement</span></div>
+          <div class="legend-item"><span class="legend-swatch" style="background:${rot1}"></span><span>Péférerait à temps partiel ou en emploi</span></div>
+          <div class="legend-item"><span class="legend-swatch" style="background:${rot3}"></span><span>Péfère à temps partiel et travaille vital pour sa survie</span></div>
+        </div>
+      </div>
+    `;
+    flowerContainer.innerHTML += legendHtml;
 
     const textContent = document.createElement('div');
     textContent.className = 'text-content';
@@ -174,18 +195,23 @@ async function initCenterFlower() {
     const heading = centerSection.querySelector('h2');
     const paragraphs = Array.from(centerSection.querySelectorAll('p'));
 
+    await calculatePetalsToFall();
+
     if (heading) {
       textContent.appendChild(heading);
     }
 
     paragraphs.forEach(p => {
+      let html = p.innerHTML;
+      html = html.replace('%1', percent1 + '%');
+      html = html.replace('%2', percent2 + '%');
+      p.innerHTML = html;
       textContent.appendChild(p);
     });
 
     centerSection.appendChild(flowerContainer);
     centerSection.appendChild(textContent);
 
-    await calculatePetalsToFall();
     console.log('Center flower initialized successfully');
   } catch (e) {
     console.error('Error initializing center flower:', e);

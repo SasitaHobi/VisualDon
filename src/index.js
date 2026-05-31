@@ -41,7 +41,7 @@ function setupScrollProgress() {
     scroller
       .setup({
         step: ".step",
-        offset: 0.9,
+        offset: 2,
         progress: true,
         debug: false,
       })

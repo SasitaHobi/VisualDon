@@ -83,14 +83,14 @@ function generateSortedFlowerSVG() {
   const svgWidth = 1000;
   const svgHeight = 620;
   const centerX = svgWidth / 2;
-  const centerY = 220;
-  const centerRadius = 100;
+  const centerY = 50;
+  const centerRadius = 50;
   const circleRadius = 15;
 
   // Column positions and bounds
   const columnY = 260;
   const columnHeight = 260;
-  const columnWidth = 260;
+  const columnWidth = 300;
   const columnCenters = [150, 500, 850];
   const columns = [
     { x: columnCenters[0], reason: sortedFlowerData.topReasons[0] },
@@ -98,9 +98,9 @@ function generateSortedFlowerSVG() {
     { x: columnCenters[2], reason: sortedFlowerData.topReasons[2] }
   ];
 
-  let circles = `<circle id="center-circle-sorted" cx="${centerX}" cy="${centerY}" r="${centerRadius}" fill="#ffe8a8" opacity="0.9"/>`;
+  let circles = `<circle id="center-circle-sorted" cx="${centerX}" cy="${centerY}" r="${centerRadius}" fill="#ffe8a8" opacity="1"/>`;
 
-  const columnTitles = columns.map((column) => `\n  <text x="${column.x}" y="55" text-anchor="middle" fill="#362f2f" font-size="18" font-weight="600">${column.reason}</text>`).join('');
+  const columnTitles = columns.map((column) => `\n  <text x="${column.x}" y="600" text-anchor="middle" fill="#362f2f" font-size="18" font-weight="600">${column.reason}</text>`).join('');
 
   // Group students by reason for better distribution
   const studentsPerReason = {};
