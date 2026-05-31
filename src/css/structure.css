@@ -24,12 +24,16 @@ body {
 #center-flower{
     height: 100vh;
     position: relative;
+     margin: auto 10rem;
+     padding-top: 10rem;
     /* background-color: blue; */
 }
 
 #sorted-flower{
     height: 100vh;
     position: relative;
+    margin: auto 10rem;
+    padding-top: 20rem;
     /* background-color: blueviolet; */
 }
 #conclusion {

@@ -1,5 +1,19 @@
 // Create 20 small flowers in the footer
 let flowerHeights = {};
+const studentFirstYear = 80;
+const studentDiploma = 63;
+
+// Calculate percentage of non-graduated students
+const nonGraduatedPercentage = ((studentFirstYear - studentDiploma) / studentFirstYear) * 100;
+const flowerCount = 20;
+const nonGrowingFlowersCount = Math.round((nonGraduatedPercentage / 100) * flowerCount);
+const nonGrowingFlowers = new Set();
+
+// Distribute non-growing flowers evenly across the row
+const step = flowerCount / nonGrowingFlowersCount;
+for (let i = 0; i < nonGrowingFlowersCount; i++) {
+    nonGrowingFlowers.add(Math.round(i * step));
+}
 
 function initFooterFlowers() {
     const footer = document.getElementById('flower-footer');
@@ -7,8 +21,6 @@ function initFooterFlowers() {
     if (!footer) {
         return;
     }
-
-    const flowerCount = 20;
 
     for (let i = 0; i < flowerCount; i++) {
         const div = document.createElement('div');
@@ -34,15 +46,13 @@ function updateFlowerHeights() {
     const scrollProgress = maxScroll > 0 ? scrollHeight / maxScroll : 0;
 
     // Update heights for different flowers based on scroll position
-    for (let i = 0; i < 20; i++) {
-        // Stagger the growth of flowers
-        if(!(i===4||i===6||i===16)){
-        const flowerProgress = Math.max(0, scrollProgress);
-        flowerHeights[i] = (flowerProgress * 40)-40; // Max height is 40
-        }else{
-flowerHeights[i] = -40;
+    for (let i = 0; i < flowerCount; i++) {
+        if (!nonGrowingFlowers.has(i)) {
+            const flowerProgress = Math.max(0, scrollProgress);
+            flowerHeights[i] = (flowerProgress * 40) - 40; // Max height is 40
+        } else {
+            flowerHeights[i] = -40;
         }
-        
     }
 }
 
