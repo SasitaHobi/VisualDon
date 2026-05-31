@@ -2,11 +2,10 @@
 
 <head>
   <meta charset="UTF-8">
-  <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js">
-  </script>
+  <script language="javascript" type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300&display=swap" rel="stylesheet">
   <link href="./src/css/index.css" rel="stylesheet">
-  <script src="./addons/dat.gui.js"></script>
   <style>
     body {
       background: rgba(255, 245, 245);
@@ -64,9 +63,11 @@
         opacity: 1;
         transform: rotate(0deg) translateY(0);
       }
+
       70% {
         opacity: 1;
       }
+
       100% {
         opacity: 0;
         transform: rotate(720deg) translateY(400px);
@@ -81,44 +82,205 @@
 
     #sorted-flower-svg {
       filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      display: block;
+      margin: 0 auto;
+    }
+
+    .sorted-flower-legend {
+      width: 100%;
+      max-width: 900px;
+      margin-top: 20px;
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .center-flower-legend {
+      margin-top: 20px;
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .sorted-flower-legend .legend-title,
+    .center-flower-legend .legend-title {
+      margin: 0 0 10px;
+      font-size: 16px;
+      color: #3d2f2f;
+      font-weight: 600;
+    }
+
+    .sorted-flower-legend .legend-items,
+    .center-flower-legend .legend-items {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .sorted-flower-legend .legend-item,
+    .center-flower-legend .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #3d2f2f;
+    }
+
+    .sorted-flower-legend .legend-swatch,
+    .center-flower-legend .legend-swatch {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: inline-block;
+      border: 1px solid rgba(0, 0, 0, 0.12);
     }
 
     .sorted-student-circle {
       transition: all 0.05s ease-out;
     }
+
+    .step {
+      min-height: 240vh;
+      padding: 40px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .sticky-step {
+      position: sticky;
+      top: 80px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #center-flower {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 20px;
+      max-width: 1000px;
+    }
+
+    #center-flower .text-content {
+      order: 2;
+      text-align: left;
+      flex: 1;
+      min-width: 450px;
+      padding-top: 40px;
+      position: sticky;
+      top: 80px;
+      height: fit-content;
+    }
+
+    #center-flower .sticky-step {
+      order: 1;
+      position: relative;
+      top: 0;
+      flex-shrink: 0;
+    }
+
+    #sorted-flower {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 20px;
+      max-width: 1000px;
+    }
+
+    #sorted-flower .text-content {
+      order: 1;
+      text-align: left;
+      flex: 1;
+      min-width: 450px;
+      padding-top: 40px;
+      position: sticky;
+      top: 80px;
+      height: fit-content;
+    }
+
+    #sorted-flower .sticky-step {
+      order: 2;
+      position: relative;
+      top: 0;
+      flex-shrink: 0;
+    }
+
+    .step h2,
+    .step p {
+      max-width: 900px;
+      margin: 0 auto 18px;
+      text-align: center;
+    }
+
+    .text-content h2,
+    .text-content p {
+      max-width: 100%;
+      margin: 0 0 18px;
+      text-align: left;
+    }
   </style>
 </head>
 
 <body style="display: block; justify-content: center; margin: 0 auto; padding-bottom: 200px;">
+  <header>
+    <a href="https://github.com/SasitaHobi/VisualDon" target="_blank">
+      <img id='git' src="./assets/img/github_PNG40-1417037603.png" alt="logo github">
+    </a>
+    <a href="https://heig-vd.ch/formation/bachelor/ingenierie-des-medias" target="_blank">IM</a>
+  </header>
   <div class="container">
 
   </div>
-<section id="intro"></section>
+  <section id="intro">
     <h1>En Ingénierie des Médias, il n'y a que du temps plein...</h1>
 
     <h2>Pourquoi?</h2>
 
     <p>En 2026, il n'est possible de s'incrire qu'en temps plein en dans la filière d'Ingénierie des Médias de la
       HEIG-VD. Pourtant, de nombreuses autres filières proposent des alternatives comme le temps partiel ou le Bachelor
-      en emploi. Nous avons interrogé des dizaines d'étudiants sur le sujet. Voici un état des lieux de la situation...
+      en emploi. Nous avons interrogé plus de cinquante d'étudiants sur le sujet. Voici un état des lieux de la situation...
     </p>
 
-    </section>
+  </section>
 
-    <section id="center-flower">
-      <h2>Voici une stat</h2>
-      <p>Plusieurs facteurs font perdre de l'energie aux étudiants, que reste-t-il pour les études?</p>
-      <p>{{percent}}% d'étudiants </p>
-      <p>Plusieurs facteurs font perdre de l'energie aux étudiants, que reste-t-il pour les études?</p>
-    </section>
-    <section id="sorted-flower">
-      <h2>Tant d'élèves travaillent pour vivre</h2>
-      <p>Tant ont déclarer ne pas en avoir besoin, et comme par hasard ils vivent chez leurs parents...</p>
-    </section>
-    <section id="conclusion">
-      <h2>Que tirer de tout ça?</h2>
-      <p>Beaucoup d'impact émotionnel, regardez ces petites pousses chouppettes! Aidez-les à grandir, votez OUI aux alternatives au temps plain en Ingénierie des médias!</p>
-    </section>
+  <section id="center-flower" class="step">
+    <h2>Qui veut d'un temps plein?</h2>
+    <p>Presque personne! <br>
+      Parmis tous.tes les étudiant.e.s interrogé.e.s, %1 préfèreraient étudier à temps partiel ou en
+      emploi, soit la grande majorité. <br>
+      De plus, %2 déclarent travailler à côté pour subvenir à des besoins vitaux et préférer les alternatives au temps plein. <br>
+      Dans de telles conditions, quelle énergie reste-t-il pour les études?
+    </p>
+  </section>
+  <section id="sorted-flower" class="step">
+    <h2>Quelles conséquences?</h2>
+    <p>Voyons d'abord s'il y a une corrélation entre les raisons citées pour préférer le temps partiel et la situation de vie des étudiant.e.s... <br>
+    Voilà les 3 raison données le plus souvent:
+    </p>
+    <p>
+      En moyenne en Suisse, 40% des étudiant.e.s en Haute Ecole vivent chez leurs parents. Pourtant, on voit ici clairement que la majorité des étudiants IM ne vivent pas seul.e.s. Cela signifie que cette catégorie de la population ne peut pas se permettre d'étudier l'IM et se tournent vers d'autres filières. <br>
+
+      Ne pas offrir d'alternative signifie que ces gens sont obligé.e.s d'étudier à temps plein en plus d'un travail nécessaire au maintien de leur indépendance. Cela mène soit à un risque accru d'échec/abandon, soit au choix d'une autre filière.
+    </p>
+  </section>
+  <section id="conclusion">
+    <h2>Nous avons besoin du temps partiel</h2>
+    <p>Combien d'étudiant.e.s ont du abandonner par manque de temps ou d'argent? Combien ont échoués parce qu'iels
+      n'arrivaient pas à tenir le rythme des cours en travaillant à côté?
+
+    <p>En 2024, il y avait 80 étudiants en première année contre 63 diplômés. Combien de diplômés en plus aurait-il pu y avoir avec des alternatives au temps plein? Combien d'étudiants en plus? <br>
+      Vous avez vu ces pousses grandir, mais pensez à toutes celles qui n'en ont pas eu l'opportunité. Ces 20% d'étudiant.e.s que l'ont aurait pu aider. Pour donner les
+      meilleures chances à tous.tes de s'épanouir en Ingénierie des Médias, il faut des alternatives au temps plein!</p>
+    </p>
+  </section>
   <footer id="flower-footer">
   </footer>
 
@@ -126,9 +288,8 @@
 <script src="src/config.js"></script>
 <script src="src/flower.js"></script>
 <script src="src/calcul.js" type="module"></script>
-<script src="src/center-flower.js"></script>
-<script src="src/sorted-flower.js"></script>
 <script src="src/footer-flowers.js"></script>
-<script language="javascript" type="text/javascript" src="src/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/scrollama@3.2.0/dist/scrollama.min.js"></script>
+<script type="module" src="src/index.js"></script>
 
 </html>
