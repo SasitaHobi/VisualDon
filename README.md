@@ -18,5 +18,8 @@ Pour atteindre notre but de convaincre la direction, nous voulons associer une a
 Le code pur la construction de sfleurs en p5 a été repris et adaptés de Helena Cui
 https://editor.p5js.org/HelenaCui/sketches/u_C5uZgZQ
 
+L'outil Scrollama a été utilisé pour gérer les animations. Les instructions pour l'installation peuvent être trouvées ici:
+https://github.com/russellsamora/scrollama
+
 ## Biais 
 Nous avons commencé ce travail par la conclusion que nous voulions prouver, à savoir qu'il est important d'avoir des alternatives au temps plein. Notre travail est donc très biaisé, et chaque donnée à été choisie pour prouver notre point de vue. Certaines conclusions tirées de ces données sont des spéculations, certes raisonnables, mais qui ne peuvent être prouvées avec ces données uniquement. Il faut donc prendre ce travail avec du recul comme n'étant en aucun cas neutre.
